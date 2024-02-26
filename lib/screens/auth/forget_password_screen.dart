@@ -51,64 +51,62 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
               padding: const EdgeInsets.all(20),
               child: Column(
                 children: [
-                  const Text(
-                    "You Forgot The Password",
-                    style:TextStyle(
+                  Text(
+                    "Forgot Your Password?",
+                    style: TextStyle(
                       fontSize: 25,
-                        fontFamily: 'WorkSansSemiBold',
-                      fontWeight: FontWeight.bold
-                    )
+                      fontFamily: 'WorkSansSemiBold',
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   SizedBox(
                     height: 40,
                   ),
-
                   Image.asset(
                     "assets/images/forgot.png",
                     height: 200,
                     width: 300,
-
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 40,
                   ),
                   TextFormField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
-                    style: const TextStyle(fontFamily: 'WorkSansSemiBold', fontSize: 16.0, color: Colors.black),
+                    style: TextStyle(fontFamily: 'WorkSansSemiBold', fontSize: 16.0, color: Colors.black),
                     decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-                      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-                      border: InputBorder.none,
-                      prefixIcon: const Icon(
+                      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20), borderSide: BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20), borderSide: BorderSide(color: Colors.black)),
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(20), borderSide: BorderSide(color: Colors.black)),
+                      prefixIcon: Icon(
                         Icons.email,
                         color: Colors.black,
                         size: 22.0,
                       ),
                       hintText: 'Email Address',
-                      hintStyle: const TextStyle(fontFamily: 'WorkSansSemiBold', fontSize: 17.0),
+                      hintStyle: TextStyle(fontFamily: 'WorkSansSemiBold', fontSize: 17.0, color: Colors.grey),
                     ),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 20,
                   ),
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20), side: BorderSide(color: Colors.brown)),),
-                          padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.symmetric(vertical: 10)),
-                        ),
-                        onPressed: () {
-                          resetPassword();
-                        },
-                        child: const Text(
-                          "Reset Password",
-                          style: TextStyle(fontSize: 20),
-                        )),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                      ),
+                      onPressed: () {
+                        resetPassword();
+                      },
+                      child: Text(
+                        "Reset Password",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
                   ),
-
-                  const SizedBox(
+                  SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -119,13 +117,14 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                         style: TextStyle(color: Colors.grey.shade800),
                       ),
                       InkWell(
-                          onTap: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: const Text(
-                            "Sign In",
-                            style: TextStyle(color: Colors.lightBlue),
-                          ))
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text(
+                          "Sign In",
+                          style: TextStyle(color: Colors.lightBlue),
+                        ),
+                      )
                     ],
                   ),
                 ],
