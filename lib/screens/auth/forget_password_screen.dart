@@ -62,14 +62,6 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   SizedBox(
                     height: 40,
                   ),
-                  Image.asset(
-                    "assets/images/forgot.png",
-                    height: 200,
-                    width: 300,
-                  ),
-                  SizedBox(
-                    height: 40,
-                  ),
                   TextFormField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
