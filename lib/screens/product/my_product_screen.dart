@@ -51,35 +51,21 @@ class _MyProductScreenState extends State<MyProductScreen> {
           backgroundColor: Colors.white12,
           title: Text("My Products"),
         ),
-        body: Stack(
-          children: [
-            // Background Image
-            Image.asset(
-              'assets/images/boxes.png', // Replace with your image path
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
+        body: RefreshIndicator(
+          onRefresh: getInit,
+          child: SingleChildScrollView(
+            physics: AlwaysScrollableScrollPhysics(),
+            child: Column(
+              children: [
+                if (_authViewModel.myProduct != null &&
+                    _authViewModel.myProduct!.isEmpty)
+                  Center(child: Text("You can add your products here")),
+                if (_authViewModel.myProduct != null)
+                  ...authVM.myProduct!
+                      .map((e) => ProductWidgetList(context, e))
+              ],
             ),
-            // Content
-            Container(
-              child: RefreshIndicator(
-                onRefresh: getInit,
-                child: SingleChildScrollView(
-                  physics: AlwaysScrollableScrollPhysics(),
-                  child: Column(
-                    children: [
-                      if (_authViewModel.myProduct != null &&
-                          _authViewModel.myProduct!.isEmpty)
-                        Center(child: Text("You can add your products here")),
-                      if (_authViewModel.myProduct != null)
-                        ...authVM.myProduct!
-                            .map((e) => ProductWidgetList(context, e))
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
+          ),
         ),
       );
     });
