@@ -53,7 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Image.asset("assets/images/splash.gif"),
+              Image.asset("assets/images/splash2.gif"),
               SizedBox(height: 100,),
               Text("Plese Wait !!", style: TextStyle(
                   fontSize: 22
