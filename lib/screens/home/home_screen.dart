@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Image.asset(
-                          "assets/images/banner.jpg",
+                          "assets/images/logo1.jpg",
                           height: 200,
                           width: double.infinity,
                           fit: BoxFit.fill,
@@ -112,37 +112,24 @@ class _HomeScreenState extends State<HomeScreen> {
       alignment: Alignment.topCenter,
       child: Container(
         width: double.infinity,
-        height: 60,
+        height: 100, // Adjust the height as needed
         decoration: BoxDecoration(
           border: Border.all(color: Colors.black26),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2,
+              spreadRadius: 5,
               blurRadius: 7,
               offset: Offset(0, 3),
             ),
           ],
         ),
         padding: EdgeInsets.all(15),
-        child: Row(
-          children: [
-            Expanded(child: Container()),
-            Expanded(
-              child: Image.asset(
-                "assets/images/logo2.jpg",
-                height: 100,
-                width: 50,
-              ),
-            ),
-            Expanded(
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: Container(),
-              ),
-            ),
-          ],
+        child: Image.asset(
+          "assets/images/logo2.jpg",
+          height: 500, // Adjust the height as needed
+          width: 600, // Adjust the width as needed
         ),
       ),
     );
