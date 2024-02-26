@@ -25,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -47,28 +44,37 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBWRal4OxfRYHJsvSIoO6Fa0zkQ4Fc43OA',
-    appId: '1:1077056533877:web:0cabbaa0592a9bc4410f3c',
-    messagingSenderId: '1077056533877',
-    projectId: 'seven-steps-eb126',
-    authDomain: 'seven-steps-eb126.firebaseapp.com',
-    storageBucket: 'seven-steps-eb126.appspot.com',
+    apiKey: 'AIzaSyB97NxZMdX8S3-pgFubnJzsrxh1cHv7jyw',
+    appId: '1:1050437441584:web:f6c6342f7d0f2d0894f5f5',
+    messagingSenderId: '1050437441584',
+    projectId: 'suraibase',
+    authDomain: 'suraibase.firebaseapp.com',
+    storageBucket: 'suraibase.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDMjGwh-NfGV334sOEnh8WH74EVdi6ggfY',
-    appId: '1:1077056533877:android:2c264cecd5ce0ef2410f3c',
-    messagingSenderId: '1077056533877',
-    projectId: 'seven-steps-eb126',
-    storageBucket: 'seven-steps-eb126.appspot.com',
+    apiKey: 'AIzaSyD-vtf4b2Qa2lV7yTRqnu-1IRRXpVqbxTY',
+    appId: '1:1050437441584:android:a38a00fb7c5b941494f5f5',
+    messagingSenderId: '1050437441584',
+    projectId: 'suraibase',
+    storageBucket: 'suraibase.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD_05gtmnTB4yaGwBT2VxEJ_TnfMvV_04k',
-    appId: '1:1077056533877:ios:16389543c3b385bf410f3c',
-    messagingSenderId: '1077056533877',
-    projectId: 'seven-steps-eb126',
-    storageBucket: 'seven-steps-eb126.appspot.com',
+    apiKey: 'AIzaSyBQKUo12iYXOSas2vgFBVpQeWNX02AWkWY',
+    appId: '1:1050437441584:ios:a5c2f1afe7130fdb94f5f5',
+    messagingSenderId: '1050437441584',
+    projectId: 'suraibase',
+    storageBucket: 'suraibase.appspot.com',
     iosBundleId: 'com.example.sevenSteps',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyBQKUo12iYXOSas2vgFBVpQeWNX02AWkWY',
+    appId: '1:1050437441584:ios:b7a653af0852ec8694f5f5',
+    messagingSenderId: '1050437441584',
+    projectId: 'suraibase',
+    storageBucket: 'suraibase.appspot.com',
+    iosBundleId: 'com.example.sevenSteps.RunnerTests',
   );
 }

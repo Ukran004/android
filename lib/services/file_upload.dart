@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:seven_steps/services/firebase_service.dart';
+import 'package:surai_crafts/services/firebase_service.dart';
 
 class FileUpload{
   Reference storage = FirebaseService.storageRef;

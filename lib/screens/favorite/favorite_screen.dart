@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seven_steps/viewmodels/auth_viewmodel.dart';
+import 'package:surai_crafts/viewmodels/auth_viewmodel.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/favorite_model.dart';
@@ -17,6 +17,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   late GlobalUIViewModel _ui;
   late AuthViewModel _authViewModel;
   String? productId;
+
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -28,11 +29,9 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
 
   Future<void> getInit() async {
     _ui.loadState(true);
-    try{
+    try {
       await _authViewModel.getFavoritesUser();
-    }catch(e){
-
-    }
+    } catch (e) {}
     _ui.loadState(false);
   }
 
@@ -41,84 +40,84 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
     _ui.loadState(true);
     try {
       await _authViewModel.favoriteAction(isFavorite, productId);
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Favorite updated.")));
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Favorite updated.")));
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Something went wrong. Please try again.")));
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Something went wrong. Please try again.")));
       print(e);
     }
     _ui.loadState(false);
   }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<AuthViewModel>(builder: (context, authVM, child) {
-      return Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-              "assets/images/favbg.jpg",
+      return RefreshIndicator(
+        onRefresh: getInit,
+        child: SingleChildScrollView(
+          physics: AlwaysScrollableScrollPhysics(),
+          child: authVM.favoriteProduct == null
+              ? Column(
+            children: [
+              Center(child: Text("Something went wrong")),
+            ],
+          )
+              : authVM.favoriteProduct!.length == 0
+              ? Column(
+            children: [
+              Center(child: Text("Please add to favorite")),
+            ],
+          )
+              : Column(children: [
+            SizedBox(
+              height: 30,
             ),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: RefreshIndicator(
-          onRefresh: getInit,
-          child: SingleChildScrollView(
-            physics: AlwaysScrollableScrollPhysics(),
-            child:
-            authVM.favoriteProduct == null ?
-            Column(
-              children: [
-                Center(child: Text("Something went wrong")),
-              ],
-            ) :
-            authVM.favoriteProduct!.length == 0
-                ? Column(
-              children: [
-                Center(child: Text("Please add to favorite")),
-              ],
-            )
-                : Column(children: [
-              SizedBox(height: 30,),
-              ...authVM.favoriteProduct!.map(
-                    (e) => InkWell(
-                  onTap: (){
-                    Navigator.of(context).pushNamed("/single-product", arguments: e.id!);
-                  },
-                  child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10),
-                    child: Card(
-                      child: ListTile(
-                        trailing: IconButton(
-                          iconSize: 25,
-                          onPressed: (){
-                            removeFavorite(_authViewModel.favorites.firstWhere((element) => element.productId == e.id), e.id!);
-                          },
-                          icon: Icon(Icons.delete_outlined, color: Colors.black,),
-                        ),
-                        leading: ClipRRect(
-                            borderRadius: BorderRadius.circular(5),
-                            child: Image.network(
-                              e.imageUrl.toString(),
+            ...authVM.favoriteProduct!.map(
+                  (e) => InkWell(
+                onTap: () {
+                  Navigator.of(context)
+                      .pushNamed("/single-product", arguments: e.id!);
+                },
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 10),
+                  child: Card(
+                    child: ListTile(
+                      trailing: IconButton(
+                        iconSize: 25,
+                        onPressed: () {
+                          removeFavorite(
+                              _authViewModel.favorites
+                                  .firstWhere(
+                                      (element) => element.productId == e.id),
+                              e.id!);
+                        },
+                        icon: Icon(Icons.delete_outlined, color: Colors.black),
+                      ),
+                      leading: ClipRRect(
+                        borderRadius: BorderRadius.circular(5),
+                        child: Image.network(
+                          e.imageUrl.toString(),
+                          width: 100,
+                          fit: BoxFit.cover,
+                          errorBuilder: (BuildContext context, Object exception,
+                              StackTrace? stackTrace) {
+                            return Image.asset(
+                              'assets/images/logo.png',
                               width: 100,
                               fit: BoxFit.cover,
-                              errorBuilder: (BuildContext context,
-                                  Object exception, StackTrace? stackTrace) {
-                                return Image.asset(
-                                  'assets/images/logo.png',
-                                  width: 100,
-                                  fit: BoxFit.cover,
-                                );
-                              },
-                            )),
-                        title: Text(e.productName.toString()),
-                        subtitle: Text(e.productPrice.toString()),
+                            );
+                          },
+                        ),
                       ),
+                      title: Text(e.productName.toString()),
+                      subtitle: Text(e.productPrice.toString()),
                     ),
                   ),
                 ),
-              )
-            ]),
-          ),
+              ),
+            ),
+          ]),
         ),
       );
     });

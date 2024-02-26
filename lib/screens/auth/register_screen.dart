@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seven_steps/models/user_model.dart';
+import 'package:surai_crafts/models/user_model.dart';
 import 'package:provider/provider.dart';
 
 import '../../services/local_notification_service.dart';
@@ -421,7 +421,6 @@ class ValidateSignup {
     if (otherPassword.text != value) {
       return "Please make sure both passwords are the same";
     }
-    return null;git add .
-    
+    return null;
   }
 }

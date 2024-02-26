@@ -1,7 +1,7 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seven_steps/viewmodels/auth_viewmodel.dart';
+import 'package:surai_crafts/viewmodels/auth_viewmodel.dart';
 import 'package:provider/provider.dart';
 
 import '../services/local_notification_service.dart';

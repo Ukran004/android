@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "1077056533877",
-    "project_id": "seven-steps-eb126",
-    "storage_bucket": "seven-steps-eb126.appspot.com"
+    "project_number": "1050437441584",
+    "project_id": "suraibase",
+    "storage_bucket": "suraibase.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1077056533877:android:2c264cecd5ce0ef2410f3c",
+        "mobilesdk_app_id": "1:1050437441584:android:a38a00fb7c5b941494f5f5",
         "android_client_info": {
-          "package_name": "com.example.seven_steps"
+          "package_name": "com.example.surai_crafts"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDMjGwh-NfGV334sOEnh8WH74EVdi6ggfY"
+          "current_key": "AIzaSyD-vtf4b2Qa2lV7yTRqnu-1IRRXpVqbxTY"
         }
       ],
       "services": {

@@ -1,4 +1,4 @@
-package com.example.seven_steps
+package com.example.surai_crafts
 
 import io.flutter.embedding.android.FlutterActivity
 

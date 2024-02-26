@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seven_steps/models/favorite_model.dart';
-import 'package:seven_steps/viewmodels/auth_viewmodel.dart';
+import 'package:surai_crafts/models/favorite_model.dart';
+import 'package:surai_crafts/viewmodels/auth_viewmodel.dart';
 import 'package:provider/provider.dart';
 
 import '../../repositories/cart_repositories.dart';

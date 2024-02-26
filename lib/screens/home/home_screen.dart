@@ -2,11 +2,11 @@ import 'dart:ffi';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seven_steps/models/category_model.dart';
-import 'package:seven_steps/models/product_model.dart';
-import 'package:seven_steps/viewmodels/auth_viewmodel.dart';
-import 'package:seven_steps/viewmodels/category_viewmodel.dart';
-import 'package:seven_steps/viewmodels/product_viewmodel.dart';
+import 'package:surai_crafts/models/category_model.dart';
+import 'package:surai_crafts/models/product_model.dart';
+import 'package:surai_crafts/viewmodels/auth_viewmodel.dart';
+import 'package:surai_crafts/viewmodels/category_viewmodel.dart';
+import 'package:surai_crafts/viewmodels/product_viewmodel.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 

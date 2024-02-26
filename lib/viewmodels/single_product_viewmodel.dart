@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seven_steps/models/category_model.dart';
-import 'package:seven_steps/models/product_model.dart';
-import 'package:seven_steps/models/user_model.dart';
-import 'package:seven_steps/repositories/auth_repositories.dart';
-import 'package:seven_steps/services/firebase_service.dart';
-import 'package:seven_steps/viewmodels/global_ui_viewmodel.dart';
+import 'package:surai_crafts/models/category_model.dart';
+import 'package:surai_crafts/models/product_model.dart';
+import 'package:surai_crafts/models/user_model.dart';
+import 'package:surai_crafts/repositories/auth_repositories.dart';
+import 'package:surai_crafts/services/firebase_service.dart';
+import 'package:surai_crafts/viewmodels/global_ui_viewmodel.dart';
 
 import '../repositories/category_repositories.dart';
 import '../repositories/product_repositories.dart';

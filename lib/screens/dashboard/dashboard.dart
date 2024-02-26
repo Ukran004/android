@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seven_steps/screens/account/account_screen.dart';
-import 'package:seven_steps/screens/cart/cart_screen.dart';
-import 'package:seven_steps/screens/home/home_screen.dart';
+import 'package:surai_crafts/screens/account/account_screen.dart';
+import 'package:surai_crafts/screens/cart/cart_screen.dart';
+import 'package:surai_crafts/screens/home/home_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../viewmodels/auth_viewmodel.dart';

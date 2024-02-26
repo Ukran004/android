@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:seven_steps/models/product_model.dart';
-import 'package:seven_steps/repositories/product_repositories.dart';
-import 'package:seven_steps/services/file_upload.dart';
-import 'package:seven_steps/viewmodels/category_viewmodel.dart';
+import 'package:surai_crafts/models/product_model.dart';
+import 'package:surai_crafts/repositories/product_repositories.dart';
+import 'package:surai_crafts/services/file_upload.dart';
+import 'package:surai_crafts/viewmodels/category_viewmodel.dart';
 import 'package:provider/provider.dart';
 import '../../viewmodels/auth_viewmodel.dart';
 import '../../viewmodels/global_ui_viewmodel.dart';

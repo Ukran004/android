@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seven_steps/models/category_model.dart';
+import 'package:surai_crafts/models/category_model.dart';
 import '../repositories/category_repositories.dart';
 
 class CategoryViewModel with ChangeNotifier {

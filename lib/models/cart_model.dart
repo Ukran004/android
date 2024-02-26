@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:seven_steps/models/product_model.dart';
+import 'package:surai_crafts/models/product_model.dart';
 
 class CartModel {
 
