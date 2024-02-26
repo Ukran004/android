@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:surai_crafts/services/local_notification_service.dart';
 import 'package:provider/provider.dart';
 import '../../viewmodels/auth_viewmodel.dart';
 import '../../viewmodels/global_ui_viewmodel.dart';
@@ -43,54 +42,53 @@ class _AccountScreenState extends State<AccountScreen> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(
-            height: 40,
+          SizedBox(height: 40),
+          CircleAvatar(
+            radius: 80,
+            backgroundImage: AssetImage("assets/images/dp.jpg"),
           ),
-          Image.asset(
-            "assets/images/dp.jpg",
-            height: 200,
-            width: 300,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            child: Text(_auth.loggedInUser!.email.toString(),style: TextStyle(
+          SizedBox(height: 20),
+          Text(
+            _auth.loggedInUser!.email.toString(),
+            style: TextStyle(
               fontSize: 20,
-                fontFamily: 'WorkSansSemiBold',
-            ),),
+              fontFamily: 'WorkSansSemiBold',
+            ),
           ),
-          SizedBox(
-            height: 10,
+          SizedBox(height: 20),
+          ListTile(
+            onTap: () {
+              Navigator.of(context).pushNamed("/my-products");
+            },
+            leading: Icon(Icons.sell, color: Colors.blue),
+            title: Text(
+              "My Products",
+              style: TextStyle(fontSize: 18),
+            ),
+            subtitle: Text("Get listing of my products"),
           ),
-          makeSettings(
-              icon: Icon(Icons.sell),
-              title: "My Products",
-              subtitle: "Get listing of my products",
-              onTap: (){
-                Navigator.of(context).pushNamed("/my-products");
-              }
+          ListTile(
+            onTap: logout,
+            leading: Icon(Icons.logout, color: Colors.red),
+            title: Text(
+              "Logout",
+              style: TextStyle(fontSize: 18),
+            ),
+            subtitle: Text("Logout from this application"),
           ),
-          makeSettings(
-              icon: Icon(Icons.logout),
-              title: "Logout",
-              subtitle: "Logout from this application",
-              onTap: (){
-                logout();
-              }
+          ListTile(
+            leading: Icon(Icons.info, color: Colors.green),
+            title: Text(
+              "Version",
+              style: TextStyle(fontSize: 18),
+            ),
+            subtitle: Text("7.1.7"),
           ),
-          makeSettings(
-              icon: Icon(Icons.android),
-              title: "Version",
-              subtitle: "7.1.7",
-              onTap: (){
-
-              }
-          )
         ],
       ),
     );
   }
+}
 
   makeSettings({required Icon icon, required String title, required String subtitle, Function()? onTap}) {
     return InkWell(
@@ -117,4 +115,3 @@ class _AccountScreenState extends State<AccountScreen> {
       ),
     );
   }
-}
