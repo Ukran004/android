@@ -23,6 +23,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _authViewModel = Provider.of<AuthViewModel>(context, listen: false);
       _ui = Provider.of<GlobalUIViewModel>(context, listen: false);
+      getInit();
     });
     super.initState();
   }
@@ -52,56 +53,42 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<AuthViewModel>(builder: (context, authVM, child) {
-      return RefreshIndicator(
-        onRefresh: getInit,
-        child: SingleChildScrollView(
-          physics: AlwaysScrollableScrollPhysics(),
-          child: authVM.favoriteProduct == null
-              ? Column(
-            children: [
-              Center(child: Text("Something went wrong")),
-            ],
-          )
-              : authVM.favoriteProduct!.length == 0
-              ? Column(
-            children: [
-              Center(child: Text("Please add to favorite")),
-            ],
-          )
-              : Column(children: [
-            SizedBox(
-              height: 30,
-            ),
-            ...authVM.favoriteProduct!.map(
-                  (e) => InkWell(
-                onTap: () {
-                  Navigator.of(context)
-                      .pushNamed("/single-product", arguments: e.id!);
-                },
-                child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 10),
-                  child: Card(
-                    child: ListTile(
-                      trailing: IconButton(
-                        iconSize: 25,
-                        onPressed: () {
-                          removeFavorite(
-                              _authViewModel.favorites
-                                  .firstWhere(
-                                      (element) => element.productId == e.id),
-                              e.id!);
-                        },
-                        icon: Icon(Icons.delete_outlined, color: Colors.black),
-                      ),
+    return Consumer<AuthViewModel>(
+      builder: (context, authVM, child) {
+        return RefreshIndicator(
+          onRefresh: getInit,
+          child: SingleChildScrollView(
+            physics: AlwaysScrollableScrollPhysics(),
+            child: authVM.favoriteProduct == null
+                ? Center(child: Text("Something went wrong"))
+                : authVM.favoriteProduct!.isEmpty
+                ? Center(child: Text("Please add to favorites"))
+                : Column(
+              children: [
+                SizedBox(height: 20),
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: authVM.favoriteProduct!.length,
+                  itemBuilder: (context, index) {
+                    final product = authVM.favoriteProduct![index];
+                    return ListTile(
+                      onTap: () {
+                        Navigator.of(context).pushNamed(
+                          "/single-product",
+                          arguments: product.id!,
+                        );
+                      },
                       leading: ClipRRect(
                         borderRadius: BorderRadius.circular(5),
                         child: Image.network(
-                          e.imageUrl.toString(),
+                          product.imageUrl.toString(),
                           width: 100,
                           fit: BoxFit.cover,
-                          errorBuilder: (BuildContext context, Object exception,
-                              StackTrace? stackTrace) {
+                          errorBuilder: (
+                              BuildContext context,
+                              Object exception,
+                              StackTrace? stackTrace,
+                              ) {
                             return Image.asset(
                               'assets/images/paint1.png',
                               width: 100,
@@ -110,16 +97,27 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                           },
                         ),
                       ),
-                      title: Text(e.productName.toString()),
-                      subtitle: Text(e.productPrice.toString()),
-                    ),
-                  ),
+                      title: Text(product.productName.toString()),
+                      subtitle: Text(product.productPrice.toString()),
+                      trailing: IconButton(
+                        icon: Icon(Icons.delete_outlined),
+                        onPressed: () {
+                          removeFavorite(
+                            _authViewModel.favorites.firstWhere(
+                                  (element) => element.productId == product.id,
+                            ),
+                            product.id!,
+                          );
+                        },
+                      ),
+                    );
+                  },
                 ),
-              ),
+              ],
             ),
-          ]),
-        ),
-      );
-    });
+          ),
+        );
+      },
+    );
   }
 }
