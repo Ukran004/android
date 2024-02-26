@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1077056533877",
+    "project_id": "seven-steps-eb126",
+    "storage_bucket": "seven-steps-eb126.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077056533877:android:2c264cecd5ce0ef2410f3c",
+        "android_client_info": {
+          "package_name": "com.example.seven_steps"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMjGwh-NfGV334sOEnh8WH74EVdi6ggfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
