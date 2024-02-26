@@ -90,7 +90,7 @@ class _MyProductScreenState extends State<MyProductScreen> {
                 fit: BoxFit.cover,
                 errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
                   return Image.asset(
-                    'assets/images/logo.png',
+                    'assets/images/paint1.png',
                     height: 300,
                     width: 100,
                     fit: BoxFit.cover,

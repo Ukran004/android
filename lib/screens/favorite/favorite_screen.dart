@@ -103,7 +103,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                           errorBuilder: (BuildContext context, Object exception,
                               StackTrace? stackTrace) {
                             return Image.asset(
-                              'assets/images/logo.png',
+                              'assets/images/paint1.png',
                               width: 100,
                               fit: BoxFit.cover,
                             );

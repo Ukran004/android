@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
 
                           Image.asset(
-                            "assets/images/banner.jpg",
+                            "assets/images/logo1.png",
                             height: 200,
                             width: double.infinity,
                             fit: BoxFit.fill,
@@ -140,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
 
                 Expanded(child: Container()),
-                Expanded(child: Image.asset("assets/images/logo.png",
+                Expanded(child: Image.asset("assets/images/logo2.jpg",
                   height: 100, width: 50,
                 )
                 ),
@@ -235,7 +235,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     fit: BoxFit.cover,
                     errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
                       return Image.asset(
-                        'assets/images/logo.png',
+                        'assets/images/paint1.png',
                         height: 300,
                         width: double.infinity,
                         fit: BoxFit.fitWidth,
